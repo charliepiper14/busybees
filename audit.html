@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busy Bees Google Ads - Audit Analysis & Strategic Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            background: #f5f5f5;
+        }
+        
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            position: relative;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #e6324a 0%, #c72842 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 250px;
+            margin-bottom: 40px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero .subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .section-light {
+            background: white;
+        }
+        
+        .section-accent {
+            background: #fecd1d;
+            color: #333;
+        }
+        
+        .section-dark {
+            background: #2c2c2c;
+            color: white;
+        }
+        
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #e6324a;
+        }
+        
+        .section-dark h2, .section-accent h2 {
+            color: inherit;
+        }
+        
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #e6324a;
+        }
+        
+        .section-dark .metric-card {
+            background: #3c3c3c;
+            border-left-color: #fecd1d;
+        }
+        
+        .metric-card .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .section-dark .metric-card .label {
+            color: #aaa;
+        }
+        
+        .metric-card .value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #e6324a;
+            margin-bottom: 5px;
+        }
+        
+        .section-dark .metric-card .value {
+            color: #fecd1d;
+        }
+        
+        .metric-card .change {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .positive {
+            color: #28a745 !important;
+        }
+        
+        .negative {
+            color: #dc3545 !important;
+        }
+        
+        .campaign-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .campaign-table th {
+            background: #e6324a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .campaign-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .campaign-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .star {
+            color: #fecd1d;
+            font-size: 20px;
+        }
+        
+        .priority-high {
+            background: #e6324a;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .priority-medium {
+            background: #fecd1d;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .action-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .action-list li {
+            padding: 20px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #e6324a;
+        }
+        
+        .section-dark .action-list li {
+            background: #3c3c3c;
+            border-left-color: #fecd1d;
+        }
+        
+        .action-list li strong {
+            color: #e6324a;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .section-dark .action-list li strong {
+            color: #fecd1d;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #e6324a;
+        }
+        
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #e6324a;
+            border: 3px solid white;
+        }
+        
+        .timeline-item h3 {
+            color: #e6324a;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #fecd1d;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .section-dark .highlight-box {
+            background: rgba(254,205,29,0.15);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: #2c2c2c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #e6324a;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 40px 20px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .campaign-table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="section hero">
+        <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1759837010/bb-logo_1_rjxucz.png" alt="Busy Bees Logo" class="logo">
+        <h1>Google Ads Performance Report</h1>
+        <div class="subtitle">Audit Analysis & Strategic Roadmap</div>
+    </section>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="section section-light">
+        <h2>Executive Summary</h2>
+        
+        <div class="highlight-box">
+            <strong style="font-size: 20px; color: #e6324a;">Account Health Score: 72/100</strong>
+            <p style="margin-top: 10px;">Status: <strong>IMPROVING</strong> - Recent 7-day performance shows 20% CPA improvement and 21% conversion rate lift. Strong momentum but budget constraints limiting scale.</p>
+        </div>
+
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="label">90-Day Performance</div>
+                <div class="value">£15.93</div>
+                <div class="change">CPA | 6,322 conversions</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">30-Day Performance</div>
+                <div class="value">£19.27</div>
+                <div class="change positive">CPA | 2,089 conversions</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">7-Day Performance</div>
+                <div class="value">£15.45</div>
+                <div class="change positive">▼ 19.8% vs 30-day ⭐</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Conversion Rate Trend</div>
+                <div class="value">6.45%</div>
+                <div class="change positive">▲ 20.8% in last 7 days</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 50px; color: #333;">Critical Findings</h3>
+        <ul class="action-list">
+            <li>
+                <strong>🎯 Performance Acceleration</strong>
+                Last 7 days show 19.8% CPA improvement and 20.8% conversion rate increase - clear upward trajectory requiring immediate budget expansion
+            </li>
+            <li>
+                <strong>💎 Brand Campaign Excellence</strong>
+                Brand T1: 423 conversions at £1.53 CPA (30-day) - 92% below target. Currently budget-limited at £32/day when should be £300-500/day
+            </li>
+            <li>
+                <strong>📱 Mobile Dominance Confirmed</strong>
+                97.6% of conversions occur on mobile (30-day data), yet landing pages not optimized for mobile-first experience
+            </li>
+            <li>
+                <strong>⚠️ Budget Constraint Crisis</strong>
+                Daily spend dropped 29% in last week due to budget limits - preventing capture of improving performance momentum
+            </li>
+            <li>
+                <strong>🔍 Search Term Waste Identified</strong>
+                £2,584 spent on 0-conversion terms in last 30 days including "nursery near me" (£1,172) requiring attribution analysis
+            </li>
+        </ul>
+    </section>
+
+    <!-- MULTI-PERIOD COMPARISON -->
+    <section class="section section-accent">
+        <h2>Performance Trend Analysis</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Metric</th>
+                    <th>90 Days<br><small>(Jul 9 - Oct 6)</small></th>
+                    <th>30 Days<br><small>(Sep 7 - Oct 6)</small></th>
+                    <th>7 Days<br><small>(Sep 30 - Oct 6)</small></th>
+                    <th>Trend</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Spend</td>
+                    <td>£100,706</td>
+                    <td>£40,259</td>
+                    <td>£6,669</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Conversions</td>
+                    <td>6,322</td>
+                    <td>2,089</td>
+                    <td>432</td>
+                    <td>-</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td>CPA</td>
+                    <td>£15.93</td>
+                    <td>£19.27</td>
+                    <td><strong>£15.45</strong></td>
+                    <td style="color: #28a745;"><strong>▼ 19.8%</strong></td>
+                </tr>
+                <tr>
+                    <td>Total Clicks</td>
+                    <td>108,529</td>
+                    <td>39,151</td>
+                    <td>6,696</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>CTR</td>
+                    <td>1.16%</td>
+                    <td>1.38%</td>
+                    <td>1.16%</td>
+                    <td>-</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td>Conversion Rate</td>
+                    <td>5.82%</td>
+                    <td>5.34%</td>
+                    <td><strong>6.45%</strong></td>
+                    <td style="color: #28a745;"><strong>▲ 20.8%</strong></td>
+                </tr>
+                <tr>
+                    <td>Daily Avg Spend</td>
+                    <td>£1,119</td>
+                    <td>£1,342</td>
+                    <td>£953</td>
+                    <td style="color: #dc3545;">▼ 29.0%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>Key Insight:</strong> Recent 7-day performance shows significant improvement over 30-day average (CPA -19.8%, Conv Rate +20.8%), indicating optimizations are working. However, daily spend decrease of 29% suggests budget constraints are preventing full capture of this improved efficiency.
+        </div>
+    </section>
+
+    <!-- CAMPAIGN PERFORMANCE -->
+    <section class="section section-light">
+        <h2>Top Performing Campaigns</h2>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Campaign (30-Day Data)</th>
+                    <th>Conversions</th>
+                    <th>CPA</th>
+                    <th>Spend</th>
+                    <th>Conv Rate</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Brand T1</strong></td>
+                    <td>423</td>
+                    <td><strong>£1.53</strong></td>
+                    <td>£646</td>
+                    <td>21.1%</td>
+                    <td><span class="priority-high">SCALE 10X NOW</span></td>
+                </tr>
+                <tr>
+                    <td><strong>PMax T1</strong></td>
+                    <td>440</td>
+                    <td><strong>£17.74</strong></td>
+                    <td>£7,807</td>
+                    <td>4.2%</td>
+                    <td><span class="priority-high">INCREASE 50%</span></td>
+                </tr>
+                <tr>
+                    <td><strong>PMax T2</strong></td>
+                    <td>252</td>
+                    <td><strong>£9.04</strong></td>
+                    <td>£2,280</td>
+                    <td>4.6%</td>
+                    <td><span class="priority-high">SCALE 3X</span></td>
+                </tr>
+                <tr>
+                    <td><strong>PMax London & South</strong></td>
+                    <td>325</td>
+                    <td><strong>£11.25</strong></td>
+                    <td>£3,651</td>
+                    <td>4.6%</td>
+                    <td><span class="priority-high">SCALE 2X</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Brand Scotland/Wales</strong></td>
+                    <td>69</td>
+                    <td><strong>£3.06</strong></td>
+                    <td>£211</td>
+                    <td>28.0%</td>
+                    <td><span class="priority-medium">EXPAND 3X</span></td>
+                </tr>
+                <tr style="background: #fff3cd;">
+                    <td><strong>NB-T3</strong></td>
+                    <td>394</td>
+                    <td><strong>£36.51</strong></td>
+                    <td>£14,384</td>
+                    <td>5.2%</td>
+                    <td><span class="priority-medium">REDUCE 50%</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>Budget Allocation Inefficiency:</strong> Brand T1 delivers 20% of conversions from just 1.6% of budget (£646 of £40,259). NB-T3 consumes 35.7% of budget (£14,384) but delivers only 18.9% of conversions at 2.4x higher CPA. Immediate reallocation required.
+        </div>
+    </section>
+
+    <!-- DEVICE & DEMOGRAPHICS -->
+    <section class="section section-dark">
+        <h2>Audience Intelligence</h2>
+        
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="label">Mobile Conversions</div>
+                <div class="value">97.6%</div>
+                <div class="change">2,039 of 2,089 (30-day)</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Desktop Conversions</div>
+                <div class="value">2.4%</div>
+                <div class="change">51 conversions at £25.24 CPA</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Primary Demographic</div>
+                <div class="value">61%</div>
+                <div class="change">Female 25-44 years</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Mobile CPA</div>
+                <div class="value">£18.82</div>
+                <div class="change">vs £25.24 desktop</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 50px; color: #fecd1d;">Demographic Breakdown (90-Day)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Female 25-34:</strong> 36.6% of impressions - Primary target audience
+            </li>
+            <li>
+                <strong>Female 35-44:</strong> 24.1% of impressions - Secondary audience
+            </li>
+            <li>
+                <strong>Male 35-44:</strong> 8.1% of impressions - Tertiary opportunity
+            </li>
+            <li>
+                <strong>Strategy:</strong> Combined 60.7% female 25-44 suggests mothers researching childcare during work hours - optimize for mobile lunch break/evening searches
+            </li>
+        </ul>
+    </section>
+
+    <!-- COMPETITIVE LANDSCAPE -->
+    <section class="section section-accent">
+        <h2>Competitive Position Analysis</h2>
+        
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="label">Your Impression Share</div>
+                <div class="value">37.8%</div>
+                <div class="change positive">vs <10% competitors</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Top of Page Rate</div>
+                <div class="value">49%</div>
+                <div class="change negative">vs 70-77% competitors</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Outranking Threat</div>
+                <div class="value">61%</div>
+                <div class="change">Bright Horizons advantage</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Absolute Top Rate</div>
+                <div class="value">20%</div>
+                <div class="change">Needs improvement</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 50px; color: #333;">Competitor Analysis</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Bright Horizons - Premium Aggressor</strong>
+                <10% impression share but 79% top-of-page rate. Outranking you 61% of the time through aggressive bidding on high-value terms
+            </li>
+            <li>
+                <strong>Childcare.co.uk - Directory Competitor</strong>
+                <10% impression share, 80% top-of-page rate, 50% outranking share. Strong local SEO complementing paid presence
+            </li>
+            <li>
+                <strong>The Old Station Nursery - Emerging Local Threat</strong>
+                New competitor with 36% outranking rate in specific markets - monitor expansion
+            </li>
+            <li>
+                <strong>Defensive Strategy Required</strong>
+                You have higher volume but competitors dominate premium positions. Need bid increases on brand terms and top-converting keywords
+            </li>
+        </ul>
+    </section>
+
+    <!-- COMPETITIVE INTELLIGENCE -->
+    <section class="section section-dark">
+        <h2>Deep Competitive Intelligence & Market Gaps</h2>
+        
+        <div style="background: white; padding: 20px; border-radius: 12px; margin: 30px 0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #e6324a;">
+                        <th style="padding: 15px; color: white; text-align: left; font-weight: 600;">Competitor</th>
+                        <th style="padding: 15px; color: white; text-align: left; font-weight: 600;">Est. Monthly Budget</th>
+                        <th style="padding: 15px; color: white; text-align: left; font-weight: 600;">Avg CPC</th>
+                        <th style="padding: 15px; color: white; text-align: left; font-weight: 600;">Strategy Focus</th>
+                        <th style="padding: 15px; color: white; text-align: left; font-weight: 600;">Weakness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px; color: #333;"><strong>Bright Horizons</strong></td>
+                        <td style="padding: 15px; color: #333;">£10,000-£12,000</td>
+                        <td style="padding: 15px; color: #333;">£2.50-£3.50</td>
+                        <td style="padding: 15px; color: #333;">B2B Corporate + Local</td>
+                        <td style="padding: 15px; color: #333;">Limited local coverage, only £10-12K budget</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px; color: #333;"><strong>Old Station Nursery</strong></td>
+                        <td style="padding: 15px; color: #333;">£3,000-£6,000</td>
+                        <td style="padding: 15px; color: #333;">£1.50-£3.60</td>
+                        <td style="padding: 15px; color: #333;">Hyperlocal + Montessori</td>
+                        <td style="padding: 15px; color: #333;">Low budget limits scale, regional only</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px; color: #333;"><strong>Tommies Childcare</strong></td>
+                        <td style="padding: 15px; color: #333;">£2,500-£4,000</td>
+                        <td style="padding: 15px; color: #333;">£2.20-£2.80</td>
+                        <td style="padding: 15px; color: #333;">Regional Midlands</td>
+                        <td style="padding: 15px; color: #333;">Coventry/Warwickshire only, no national reach</td>
+                    </tr>
+                    <tr style="background: #fecd1d; border-bottom: 1px solid #eee;">
+                        <td style="padding: 15px; color: #333;"><strong>Busy Bees (You)</strong></td>
+                        <td style="padding: 15px; color: #333;"><strong>£40,000+</strong></td>
+                        <td style="padding: 15px; color: #333;"><strong>£1.03</strong></td>
+                        <td style="padding: 15px; color: #333;"><strong>National Scale</strong></td>
+                        <td style="padding: 15px; color: #333;">Premium position vs. Bright Horizons (61% outranked)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="color: #fecd1d; margin-top: 50px;">🎯 Strategic Market Gaps Identified</h3>
+        
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="label">Corporate/Employer Keywords</div>
+                <div class="value">89%</div>
+                <div class="change">Underserved by competitors</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Premium Education Terms</div>
+                <div class="value">72%</div>
+                <div class="change">Montessori opportunity gap</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Budget Advantage</div>
+                <div class="value">4-8x</div>
+                <div class="change">vs. regional competitors</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">CPC Efficiency</div>
+                <div class="value">62%</div>
+                <div class="change">Lower than Bright Horizons</div>
+            </div>
+        </div>
+
+        <h3 style="color: #fecd1d; margin-top: 50px;">🔍 Competitor Keyword Intelligence</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Bright Horizons Blue Ocean Terms (Low Competition, High Value)</strong>
+                "employer childcare partnerships" | "corporate nursery benefits" | "on-site workplace nurseries" | "workplace nursery scheme" (1,600/mo, £3.25 CPC) - Currently dominated by Bright Horizons, but you have budget advantage
+            </li>
+            <li>
+                <strong>Old Station Nursery Conquesting Opportunity</strong>
+                They bid on competitor brands aggressively but have £3-6K budget limits. Target their Montessori keywords ("montessori nursery [city]") with 2x their CPC to outrank in shared markets
+            </li>
+            <li>
+                <strong>Tommies Childcare Regional Weakness</strong>
+                Limited to Coventry/Warwickshire. Expand your Birmingham, Solihull, and West Midlands coverage to capture spillover traffic at lower CPC (£2.20-£2.80 vs your £1.03)
+            </li>
+            <li>
+                <strong>Shared Weak Spot: Weekend & Evening Search</strong>
+                None of the competitors show evidence of dayparting optimization. Your weekend data shows poor performance - but if you fix it while they don't, capture 100% share in off-hours
+            </li>
+        </ul>
+
+        <h3 style="color: #fecd1d; margin-top: 50px;">💎 Untapped Market Opportunities</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Corporate/B2B Childcare Benefits Niche</strong>
+                Bright Horizons owns this space but only spends £10-12K/month. Launch dedicated B2B campaign targeting: "employee childcare benefits" (1,000/mo, £3.75) | "employer sponsored childcare" (720/mo, £4.10) | "tax-free childcare for businesses"
+                <br><strong>Budget allocation:</strong> £2,000/month, Target CPA £25-30
+                <br><strong>Expected:</strong> 65-80 B2B leads/month (higher LTV than B2C)
+            </li>
+            <li>
+                <strong>Premium Montessori Education Positioning</strong>
+                Old Station Nursery owns Montessori keywords but limited budget (£3-6K). You can dominate with £5K/month across: "montessori nursery [top 20 cities]" (avg 230/mo each, £3.10 CPC) | "ofsted rated montessori" | "premium early years education"
+                <br><strong>Expected:</strong> Position as premium option, +15% higher AOV customers
+            </li>
+            <li>
+                <strong>Competitor Brand Conquesting Campaign</strong>
+                All three competitors show brand protection weakness. Launch campaigns targeting:
+                <br>"bright horizons alternatives" | "bright horizons vs busy bees" | "cheaper than bright horizons"
+                <br>"old station nursery alternatives" | "tommies childcare alternatives"
+                <br><strong>Budget:</strong> £1,500/month | <strong>Expected CPA:</strong> £18-25 (lower than generic terms)
+            </li>
+            <li>
+                <strong>Long-Tail Question Keywords (Untapped by All)</strong>
+                None of the competitors target informational long-tail: "how do workplace nurseries work" | "what are childcare vouchers" | "how much does corporate childcare cost" | "best ofsted nurseries near me"
+                <br><strong>Strategy:</strong> Blog content + PPC remarketing funnel
+                <br><strong>Budget:</strong> £1,000/month | <strong>Expected:</strong> Build top-of-funnel at 70% lower CPC
+            </li>
+        </ul>
+    </section>
+
+    <!-- MARKET CAPTURE STRATEGY -->
+    <section class="section section-light">
+        <h2>Market Capture & Competitive Defense Strategy</h2>
+        
+        <h3 style="color: #e6324a; margin-bottom: 20px;">Offensive Campaigns (Capture Competitor Share)</h3>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Target Keywords</th>
+                    <th>Monthly Budget</th>
+                    <th>Expected Conv</th>
+                    <th>Strategic Goal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>B2B Corporate Childcare</strong></td>
+                    <td>workplace nursery, employer childcare benefits, corporate nursery</td>
+                    <td>£2,000</td>
+                    <td>65-80</td>
+                    <td>Enter Bright Horizons' B2B space with budget advantage</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Premium Montessori</strong></td>
+                    <td>montessori nursery [20 cities], ofsted rated montessori</td>
+                    <td>£5,000</td>
+                    <td>180-220</td>
+                    <td>Dominate Old Station's core positioning</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Competitor Conquesting</strong></td>
+                    <td>bright horizons alternatives, cheaper nursery options</td>
+                    <td>£1,500</td>
+                    <td>75-90</td>
+                    <td>Direct traffic interception</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Regional Expansion</strong></td>
+                    <td>Midlands nursery terms (Tommies' territory)</td>
+                    <td>£3,000</td>
+                    <td>250-300</td>
+                    <td>Capture spillover from limited regional player</td>
+                </tr>
+                <tr>
+                    <td><strong>Long-Tail Informational</strong></td>
+                    <td>how/what/best childcare questions</td>
+                    <td>£1,000</td>
+                    <td>100-120</td>
+                    <td>Build top-of-funnel dominance (untapped niche)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box" style="margin-top: 30px;">
+            <strong>Total New Market Capture Investment:</strong> £12,500/month additional budget
+            <br><strong>Expected New Conversions:</strong> 670-810/month
+            <br><strong>Projected CPA:</strong> £15-19 (competitive but profitable)
+            <br><strong>Strategic Value:</strong> Diversify beyond generic "nursery near me" where all competitors fight, dominate underserved high-intent niches
+        </div>
+
+        <h3 style="color: #e6324a; margin-top: 50px; margin-bottom: 20px;">Defensive Measures (Protect Your Market Share)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Brand Protection Enhancement</strong>
+                Competitors are bidding on your brand variants. Ensure 100% coverage on: "busy bees" | "busybees" | "busy bees nursery" | "busy bee childcare" with Target IS (Absolute Top 95%)
+                <br><strong>Budget:</strong> Increase from £32/day to £500/day (ROI justifies unlimited)
+            </li>
+            <li>
+                <strong>Reclaim Premium Positions</strong>
+                Bright Horizons outranks you 61% despite lower volume. Increase bids 25-35% on your top 100 converting keywords to achieve 60%+ absolute top rate
+                <br><strong>Implementation:</strong> Portfolio bid strategy with Target IS (Absolute Top 60%)
+            </li>
+            <li>
+                <strong>Geographic Blocking</strong>
+                Old Station Nursery expanding in your core markets (36% outranking rate). Create city-specific campaigns for markets where they're active (Wolverhampton, Maidstone, Gloucester) with 2x their estimated CPC
+                <br><strong>Budget per city:</strong> £300-500/month | <strong>Cities:</strong> 10-15 overlap markets
+            </li>
+            <li>
+                <strong>Ad Copy Differentiation</strong>
+                Competitors emphasize trust, quality, Ofsted ratings. Differentiate with: "UK's Largest Nursery Network - 600+ Locations" | "Flexible Hours Unlike Corporate Nurseries" | "Family-Run Feel, National Scale"
+                <br><strong>A/B Test:</strong> Scale advantage vs. Premium positioning
+            </li>
+        </ul>
+    </section>
+
+    <!-- CRITICAL ISSUES -->
+    <section class="section section-light">
+        <h2>Critical Issues & Quick Wins</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>🔴 Priority 1: Brand Budget Expansion (Hours 0-4)</h3>
+                <p><strong>Issue:</strong> Brand T1 limited to £32/day producing 423 conv @ £1.53 CPA</p>
+                <p><strong>Solution:</strong> Increase to £300-500/day immediately</p>
+                <p><strong>Impact:</strong> +1,500 conversions/month at £2-5 CPA = £45-75K monthly value</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>🔴 Priority 2: NB-T3 Budget Reallocation (Days 1-3)</h3>
+                <p><strong>Issue:</strong> NB-T3 consuming 35.7% of budget at £36.51 CPA (2.4x brand CPA)</p>
+                <p><strong>Solution:</strong> Reduce budget 50%, implement Target CPA £25 cap</p>
+                <p><strong>Impact:</strong> Free £7K/month for brand scaling</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>🟠 Priority 3: Mobile-First Landing Page Optimization (Weeks 1-4)</h3>
+                <p><strong>Issue:</strong> 97.6% conversions on mobile but pages not mobile-optimized</p>
+                <p><strong>Solution:</strong> Sticky CTAs, 3-field forms, click-to-call prominence, mobile-first redesign</p>
+                <p><strong>Impact:</strong> +25-35% mobile CR = +500 conversions/month</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>🟠 Priority 4: Search Term Attribution Analysis (Week 1)</h3>
+                <p><strong>Issue:</strong> £2,584 on 0-conv terms in 30 days, particularly "nursery near me" (£1,172)</p>
+                <p><strong>Solution:</strong> Analyze attribution paths, check if assisting conversions vs. genuinely wasteful</p>
+                <p><strong>Impact:</strong> Either optimize attribution or save £1K/month waste</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIC ROADMAP -->
+    <section class="section section-dark">
+        <h2>Strategic Scaling Roadmap</h2>
+        
+        <h3 style="color: #fecd1d; margin-bottom: 20px;">Phase 1: Emergency Optimization (Days 0-7)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Action 1.1: Scale Brand T1 Budget</strong>
+                Increase from £32/day to £500/day. Switch to Target CPA £5 while implementing Target IS (Absolute Top 95%) to defend against competitor brand bidding.
+                <br><strong>Expected:</strong> +400 conv/month, +£12-20K monthly value
+            </li>
+            <li>
+                <strong>Action 1.2: Reduce NB-T3 Budget</strong>
+                Cut from £100/day to £50/day, implement Target CPA £25 cap. Reallocate savings to high-opportunity competitive campaigns.
+                <br><strong>Expected:</strong> Maintain 200 conv/month, free £1,500/month for market capture
+            </li>
+            <li>
+                <strong>Action 1.3: Launch Bright Horizons Conquesting</strong>
+                Create campaign targeting "bright horizons alternatives," "corporate childcare alternatives," comparison terms. Budget: £1,500/month.
+                <br><strong>Expected:</strong> 75-90 conv/month at £18-25 CPA, direct traffic interception
+            </li>
+            <li>
+                <strong>Action 1.4: Implement Competitive Defense</strong>
+                Increase bids 25-35% on top 100 keywords to achieve 60%+ absolute top rate, countering Bright Horizons' position advantage.
+                <br><strong>Expected:</strong> Reclaim 20-25% lost premium traffic
+            </li>
+        </ul>
+
+        <h3 style="color: #fecd1d; margin-top: 40px; margin-bottom: 20px;">Phase 2: Market Capture Expansion (Weeks 2-4)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Action 2.1: B2B Corporate Childcare Launch</strong>
+                Enter Bright Horizons' dominated B2B space with budget advantage. Target: "workplace nursery scheme," "employer childcare benefits," "corporate nursery." Budget: £2,000/month.
+                <br><strong>Expected:</strong> 65-80 B2B leads/month (3x higher LTV than B2C)
+            </li>
+            <li>
+                <strong>Action 2.2: Premium Montessori Positioning</strong>
+                Dominate Old Station Nursery's core with superior budget. "Montessori nursery [20 cities]," "ofsted rated montessori." Budget: £5,000/month.
+                <br><strong>Expected:</strong> 180-220 conv/month, premium customer acquisition
+            </li>
+            <li>
+                <strong>Action 2.3: Regional Midlands Expansion</strong>
+                Capture Tommies Childcare spillover traffic in Coventry, Warwickshire, Birmingham, Solihull at lower CPC (£2.20-£2.80). Budget: £3,000/month.
+                <br><strong>Expected:</strong> 250-300 conv/month in underserved territory
+            </li>
+            <li>
+                <strong>Action 2.4: Mobile Landing Page Blitz</strong>
+                Create mobile-first variants of top 20 location pages with sticky CTAs, 3-field forms. Competitive advantage as no competitor shows mobile optimization.
+                <br><strong>Expected:</strong> +30% mobile CR = +600 conv/month
+            </li>
+        </ul>
+
+        <h3 style="color: #fecd1d; margin-top: 40px; margin-bottom: 20px;">Phase 3: Market Dominance (Months 2-3)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Action 3.1: Long-Tail Content Marketing + PPC</strong>
+                Capture untapped informational queries none of competitors target: "how do workplace nurseries work," "what are childcare vouchers," question-based keywords. Budget: £1,000/month.
+                <br><strong>Expected:</strong> Top-of-funnel dominance, +100-120 conv/month at 70% lower CPC
+            </li>
+            <li>
+                <strong>Action 3.2: Geographic Blocking Defense</strong>
+                Counter Old Station Nursery expansion in 10-15 overlap cities (Wolverhampton, Maidstone, Gloucester) with 2x their CPC. Budget: £300-500 per city.
+                <br><strong>Expected:</strong> Maintain market share in contested territories
+            </li>
+            <li>
+                <strong>Action 3.3: Remarketing Funnel Build</strong>
+                Display remarketing for site visitors, RLSA for past visitors searching. None of the regional competitors show remarketing sophistication.
+                <br><strong>Expected:</strong> +200 conv/month at 40% lower CPA
+            </li>
+            <li>
+                <strong>Action 3.4: YouTube Awareness Layer</strong>
+                In-stream video targeting parents 25-40. Bright Horizons uses video but with £10-12K budget limit - you can outspend for share of voice.
+                <br><strong>Expected:</strong> Brand awareness lift, remarketing pool growth, competitive differentiation
+            </li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 40px;">
+            <strong>Competitive Strategy Summary:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Offense:</strong> £12,500/month new investment in underserved niches (B2B, Montessori, regional, conquesting)</li>
+                <li><strong>Defense:</strong> Brand protection scale + premium position recapture + geographic blocking</li>
+                <li><strong>Advantage:</strong> 4-8x budget vs. regional competitors, 3-4x vs. Bright Horizons, 62% lower CPC efficiency</li>
+                <li><strong>Expected Impact:</strong> +670-810 conv/month from new market capture alone</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE TARGETS -->
+    <section class="section section-light">
+        <h2>Scaling Performance Targets</h2>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Timeline</th>
+                    <th>Daily Spend</th>
+                    <th>Monthly Conv</th>
+                    <th>CPA Target</th>
+                    <th>Key Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Current (Week 1)</strong></td>
+                    <td>£953</td>
+                    <td>1,853</td>
+                    <td>£15.45</td>
+                    <td>Baseline performance</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Month 1</strong></td>
+                    <td>£1,800</td>
+                    <td>3,900</td>
+                    <td>£13.85</td>
+                    <td>Brand scale + competitor conquesting + NB-T3 optimization</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Month 2</strong></td>
+                    <td>£2,600</td>
+                    <td>5,600</td>
+                    <td>£13.95</td>
+                    <td>B2B launch + Montessori positioning + PMax expansion</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Month 3</strong></td>
+                    <td>£3,200</td>
+                    <td>6,900</td>
+                    <td>£13.95</td>
+                    <td>Regional expansion + mobile optimization + remarketing</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Month 6</strong></td>
+                    <td>£4,000</td>
+                    <td>8,500</td>
+                    <td>£14.12</td>
+                    <td>Full market capture + YouTube awareness + competitive dominance</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <p style="margin-bottom: 10px;"><strong>Revised Growth Trajectory with Competitive Strategy:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Month 1: +110% conversion volume (brand scale + immediate conquesting)</li>
+                <li>Month 2: +202% volume vs current (market capture campaigns live)</li>
+                <li>Month 3: +272% volume vs current (full competitive offensive)</li>
+                <li>Month 6: +359% volume, maintaining £13-14 CPA across all channels</li>
+                <li><strong>Competitive Edge:</strong> 670-810 monthly conversions from untapped niches competitors aren't targeting</li>
+            </ul>
+        </div>
+
+        <h3 style="color: #e6324a; margin-top: 50px; margin-bottom: 20px;">Budget Allocation by Strategy</h3>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Campaign Type</th>
+                    <th>Current</th>
+                    <th>Month 1</th>
+                    <th>Month 3</th>
+                    <th>Strategic Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Brand Defense</strong></td>
+                    <td>£960</td>
+                    <td>£15,000</td>
+                    <td>£15,000</td>
+                    <td>Protect market share, counter competitor bidding</td>
+                </tr>
+                <tr>
+                    <td><strong>PMax (Generic)</strong></td>
+                    <td>£13,700</td>
+                    <td>£20,000</td>
+                    <td>£25,000</td>
+                    <td>Scale proven winners, broad reach</td>
+                </tr>
+                <tr>
+                    <td><strong>Non-Brand T3</strong></td>
+                    <td>£14,400</td>
+                    <td>£7,500</td>
+                    <td>£8,000</td>
+                    <td>Optimize efficiency, reduce waste</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>B2B Corporate (NEW)</strong></td>
+                    <td>£0</td>
+                    <td>£2,000</td>
+                    <td>£3,500</td>
+                    <td>Enter Bright Horizons territory, higher LTV</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Montessori Premium (NEW)</strong></td>
+                    <td>£0</td>
+                    <td>£5,000</td>
+                    <td>£8,000</td>
+                    <td>Dominate Old Station Nursery niche</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Competitor Conquesting (NEW)</strong></td>
+                    <td>£0</td>
+                    <td>£1,500</td>
+                    <td>£2,500</td>
+                    <td>Direct traffic interception</td>
+                </tr>
+                <tr style="background: #e8f5e9;">
+                    <td><strong>Regional Expansion (NEW)</strong></td>
+                    <td>£0</td>
+                    <td>£3,000</td>
+                    <td>£5,000</td>
+                    <td>Capture Tommies territory, lower CPC</td>
+                </tr>
+                <tr>
+                    <td><strong>Location Campaigns</strong></td>
+                    <td>£3,200</td>
+                    <td>£4,000</td>
+                    <td>£6,000</td>
+                    <td>Consolidate winners, geographic defense</td>
+                </tr>
+                <tr>
+                    <td><strong>Remarketing</strong></td>
+                    <td>£0</td>
+                    <td>£500</td>
+                    <td>£2,000</td>
+                    <td>Competitive advantage (competitors weak here)</td>
+                </tr>
+                <tr>
+                    <td><strong>YouTube Awareness</strong></td>
+                    <td>£0</td>
+                    <td>£0</td>
+                    <td>£3,000</td>
+                    <td>Outspend Bright Horizons for share of voice</td>
+                </tr>
+                <tr style="font-weight: bold; background: #f0f0f0;">
+                    <td>TOTAL</td>
+                    <td>£32,260</td>
+                    <td>£58,500</td>
+                    <td>£78,000</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box" style="margin-top: 30px;">
+            <strong>Strategic Budget Reallocation Impact:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Freed from NB-T3:</strong> £7,000/month → reallocated to high-opportunity competitive niches</li>
+                <li><strong>New market investment:</strong> £11,500/month in untapped segments (B2B, Montessori, conquesting, regional)</li>
+                <li><strong>Brand protection:</strong> £15,000/month ensures competitive defense and 95% absolute top share</li>
+                <li><strong>Efficiency gain:</strong> Average CPA maintained at £13-14 despite 4x scale through strategic targeting</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SUCCESS METRICS -->
+    <section class="section section-accent">
+        <h2>Success Metrics & KPIs</h2>
+        
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="label">Week 1 Target</div>
+                <div class="value">£12-14</div>
+                <div class="change">CPA after brand scaling</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Month 1 Target</div>
+                <div class="value">3,900</div>
+                <div class="change">Monthly conversions (+110%)</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Competitive Share Gain</div>
+                <div class="value">+25%</div>
+                <div class="change">Market capture from competitors</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Brand IS Target</div>
+                <div class="value">95%+</div>
+                <div class="change">Absolute top position</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 50px; color: #333;">What Success Looks Like (30 Days)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Brand T1 Scaled Successfully</strong>
+                400-500 conversions/month at £2-5 CPA from £500/day budget, defending against competitor brand bidding with 95% absolute top share
+            </li>
+            <li>
+                <strong>Competitive Market Capture Validated</strong>
+                B2B campaign: 65-80 leads at £25-30 CPA | Montessori: 180-220 conv | Conquesting: 75-90 conv - Total: 320-390 new conversions from competitive initiatives
+            </li>
+            <li>
+                <strong>Premium Position Reclaimed</strong>
+                Absolute top rate increased from 20% to 60%+ on high-value keywords, reducing Bright Horizons outranking from 61% to <40%
+            </li>
+            <li>
+                <strong>NB-T3 Optimized & Reallocated</strong>
+                Budget reduced 50%, CPA improved from £36.51 to £25, freeing £7,000/month for market capture campaigns
+            </li>
+            <li>
+                <strong>Mobile Conversion Rate Lift</strong>
+                From £18.82 mobile CPA to £14-16 CPA through mobile-first UX improvements (competitive advantage as no competitor optimized)
+            </li>
+            <li>
+                <strong>Geographic Defense Established</strong>
+                Active campaigns in 10-15 overlap cities blocking Old Station Nursery expansion, maintaining market share
+            </li>
+        </ul>
+
+        <h3 style="margin-top: 50px; color: #333;">Competitive KPIs (Track Monthly)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>Impression Share vs. Bright Horizons</strong>
+                Current: 37.8% you vs <10% them. Target: Maintain volume advantage while increasing absolute top from 20% to 60%
+            </li>
+            <li>
+                <strong>Outranking Share Defense</strong>
+                Current: Being outranked 61% by Bright Horizons. Target: Reduce to <40% through bid increases
+            </li>
+            <li>
+                <strong>B2B Market Penetration</strong>
+                Current: £0 in corporate childcare space. Target: £2,000/month spend, 65-80 B2B leads (entering Bright Horizons' core)
+            </li>
+            <li>
+                <strong>Montessori Category Leadership</strong>
+                Current: Minimal presence. Target: £5,000/month spend, 180-220 conversions (dominating Old Station Nursery niche)
+            </li>
+            <li>
+                <strong>Regional Expansion Success</strong>
+                Current: Limited Midlands presence. Target: 250-300 Midlands conversions/month (capturing Tommies' spillover)
+            </li>
+            <li>
+                <strong>Competitor Traffic Interception</strong>
+                Current: £0 on conquesting. Target: 75-90 conversions/month from competitor alternative searches
+            </li>
+        </ul>
+
+        <h3 style="margin-top: 50px; color: #333;">90-Day Competitive Success Benchmarks</h3>
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Competitive Metric</th>
+                    <th>Current State</th>
+                    <th>90-Day Target</th>
+                    <th>Strategic Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Absolute Top Share</td>
+                    <td>20%</td>
+                    <td>60%+</td>
+                    <td>Reclaim premium positions from Bright Horizons</td>
+                </tr>
+                <tr>
+                    <td>Brand Protection</td>
+                    <td>Limited budget</td>
+                    <td>95% Absolute Top</td>
+                    <td>Defend against competitor brand bidding</td>
+                </tr>
+                <tr>
+                    <td>B2B Market Share</td>
+                    <td>0%</td>
+                    <td>15-20%</td>
+                    <td>Enter Bright Horizons' dominated space</td>
+                </tr>
+                <tr>
+                    <td>Montessori Category</td>
+                    <td>Minimal</td>
+                    <td>Market Leader</td>
+                    <td>Dominate Old Station Nursery positioning</td>
+                </tr>
+                <tr>
+                    <td>Midlands Regional</td>
+                    <td>Limited</td>
+                    <td>750+ conv/month</td>
+                    <td>Capture Tommies' limited territory</td>
+                </tr>
+                <tr>
+                    <td>Competitor Conquesting</td>
+                    <td>None</td>
+                    <td>225+ conv/month</td>
+                    <td>Direct traffic interception across 3 competitors</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section class="section section-light">
+        <h2>Immediate Next Steps</h2>
+        
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="label">This Week</div>
+                <div class="value">6</div>
+                <div class="change">Critical competitive actions</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Expected Lift</div>
+                <div class="value">+110%</div>
+                <div class="change">Conversion volume increase</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Market Share Gain</div>
+                <div class="value">+25%</div>
+                <div class="change">From competitor capture</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Implementation Time</div>
+                <div class="value">6-8hrs</div>
+                <div class="change">To execute Phase 1</div>
+            </div>
+        </div>
+
+        <h3 style="color: #e6324a; margin-top: 50px;">Critical Action Checklist (Week 1)</h3>
+        <ul class="action-list">
+            <li>
+                <strong>✓ Day 1, Hour 0-2: Brand T1 Budget Expansion</strong>
+                Update daily budget from £32 to £500, switch to Target CPA £5 with Target IS (Absolute Top 95%) for competitive defense
+            </li>
+            <li>
+                <strong>✓ Day 1, Hour 2-4: Launch Bright Horizons Conquesting</strong>
+                Create campaign targeting "bright horizons alternatives," "corporate childcare alternatives," "cheaper than bright horizons." Budget: £50/day (£1,500/month)
+            </li>
+            <li>
+                <strong>✓ Day 1, Hour 4-6: NB-T3 Budget Optimization</strong>
+                Reduce from £100/day to £50/day, implement Target CPA £25 cap. Reallocate savings to competitive campaigns
+            </li>
+            <li>
+                <strong>✓ Day 2: Competitive Defense Bid Increases</strong>
+                Increase bids 25-35% on top 100 converting keywords. Create portfolio bid strategy with Target IS (Absolute Top 60%)
+            </li>
+            <li>
+                <strong>✓ Day 3: B2B Corporate Campaign Setup</strong>
+                Build campaign targeting "workplace nursery scheme," "employer childcare benefits," "corporate nursery." Budget: £65/day. Landing page: Create dedicated B2B enquiry page
+            </li>
+            <li>
+                <strong>✓ Day 4: Montessori Premium Campaign Launch</strong>
+                Create "montessori nursery [20 cities]" campaign structure. Budget: £165/day (£5K/month). Position as premium option
+            </li>
+            <li>
+                <strong>✓ Day 5: Regional Midlands Expansion</strong>
+                Launch Coventry, Warwickshire, Birmingham, Solihull campaigns targeting Tommies' territory at £2.20-£2.80 CPC. Budget: £100/day
+            </li>
+            <li>
+                <strong>✓ Days 6-7: Monitor, Optimize & Report</strong>
+                Daily CPA tracking across all competitive campaigns, auction insights monitoring for position changes, first-week performance assessment
+            </li>
+        </ul>
+
+        <h3 style="color: #e6324a; margin-top: 50px;">Campaign Build Priority Matrix</h3>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Priority</th>
+                    <th>Campaign</th>
+                    <th>Build Time</th>
+                    <th>Go-Live</th>
+                    <th>Expected Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #ffebee;">
+                    <td><span class="priority-high">URGENT</span></td>
+                    <td>Brand T1 Budget Scale</td>
+                    <td>10 mins</td>
+                    <td>Day 1, Hour 0</td>
+                    <td>+400 conv/month, £1.94 CPA maintenance</td>
+                </tr>
+                <tr style="background: #ffebee;">
+                    <td><span class="priority-high">URGENT</span></td>
+                    <td>Bright Horizons Conquesting</td>
+                    <td>2 hours</td>
+                    <td>Day 1, Hour 4</td>
+                    <td>75-90 conv/month, direct interception</td>
+                </tr>
+                <tr style="background: #ffebee;">
+                    <td><span class="priority-high">URGENT</span></td>
+                    <td>NB-T3 Optimization</td>
+                    <td>15 mins</td>
+                    <td>Day 1, Hour 4</td>
+                    <td>Free £7K/month for reallocation</td>
+                </tr>
+                <tr style="background: #fff3cd;">
+                    <td><span class="priority-medium">HIGH</span></td>
+                    <td>Competitive Defense Bids</td>
+                    <td>3 hours</td>
+                    <td>Day 2</td>
+                    <td>Reclaim 25% lost premium traffic</td>
+                </tr>
+                <tr style="background: #fff3cd;">
+                    <td><span class="priority-medium">HIGH</span></td>
+                    <td>B2B Corporate Launch</td>
+                    <td>4 hours</td>
+                    <td>Day 3</td>
+                    <td>65-80 B2B leads/month, 3x LTV</td>
+                </tr>
+                <tr style="background: #fff3cd;">
+                    <td><span class="priority-medium">HIGH</span></td>
+                    <td>Montessori Premium</td>
+                    <td>6 hours</td>
+                    <td>Day 4</td>
+                    <td>180-220 conv/month, premium positioning</td>
+                </tr>
+                <tr style="background: #fff3cd;">
+                    <td><span class="priority-medium">HIGH</span></td>
+                    <td>Regional Midlands</td>
+                    <td>4 hours</td>
+                    <td>Day 5</td>
+                    <td>250-300 conv/month, lower CPC</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="color: #e6324a; margin-top: 50px;">Week 1 Competitive Monitoring Dashboard</h3>
+        <div class="highlight-box">
+            <p style="margin-bottom: 15px;"><strong>Track Daily:</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>Brand T1 CPA trend (maintain <£5)</li>
+                <li>Absolute Top % vs. Bright Horizons (target 60%+)</li>
+                <li>Conquesting campaign conv rate (target 2-3%)</li>
+                <li>B2B lead quality assessment</li>
+                <li>Montessori CPA vs. Old Station Nursery benchmarks</li>
+                <li>Regional campaign CPC vs. Tommies estimates (£2.20-£2.80)</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Auction Insights Check:</strong> Monitor daily for impression share changes, outranking shifts, new competitor activity</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section hero">
+        <h2 style="color: white;">Ready to Dominate the Market?</h2>
+        <p style="font-size: 18px; opacity: 0.9; margin-bottom: 30px;">
+            Recent 7-day performance shows 19.8% CPA improvement and 20.8% conversion rate lift.<br>
+            With competitive intelligence revealing £12.5K/month in untapped market opportunities,<br>
+            this roadmap delivers 110% growth in Month 1 and 359% growth by Month 6.
+        </p>
+        <div style="opacity: 0.8; font-size: 16px; margin-bottom: 20px;">
+            <strong>Competitive Advantages Identified:</strong><br>
+            4-8x budget advantage over regional competitors<br>
+            62% lower CPC efficiency vs. Bright Horizons<br>
+            Untapped B2B, Montessori, and regional market segments<br>
+            Mobile optimization gap across all competitors
+        </div>
+        <div style="opacity: 0.7; font-size: 14px;">
+            Report Generated: October 2025<br>
+            Next Review: Weekly competitive monitoring, bi-weekly full performance assessment<br>
+            <em>Strategic intelligence provided by SpyFu competitive analysis</em>
+        </div>
+    </section>
+</body>
+</html>
